@@ -12,10 +12,15 @@ int get_size(const char *format, int *i)
 	int curr_i = *i + 1;
 	int size = 0;
 
-	if (format[curr_i] == 'l')
+	switch (format[curr_i])
+	{
+	case 'l':
 		size = S_LONG;
-	else if (format[curr_i] == 'h')
+		break;
+	case 'h':
 		size = S_SHORT;
+		break;
+	}
 
 	if (size == 0)
 		*i = curr_i - 1;
